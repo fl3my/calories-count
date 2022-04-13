@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CaloriesCount.DAL;
 using CaloriesCount.Models;
 
 namespace CaloriesCount.Controllers
 {
     public class CategoriesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CaloriesCountContext db = new CaloriesCountContext();
 
         // GET: Categories
         public ActionResult Index()

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CaloriesCount.DAL;
 using CaloriesCount.Models;
 using CaloriesCount.ViewModels;
 
@@ -13,7 +14,7 @@ namespace CaloriesCount.Controllers
 {
     public class FoodsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private CaloriesCountContext db = new CaloriesCountContext();
 
         // GET: Foods
         public ActionResult Index(string category, string search)
