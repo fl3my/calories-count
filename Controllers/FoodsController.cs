@@ -17,7 +17,7 @@ namespace CaloriesCount.Controllers
         private CaloriesCountContext db = new CaloriesCountContext();
 
         // GET: Foods
-        public ActionResult Index(string category, string search)
+        public ActionResult Index(string category, string search, string sortBy)
         {
             // Initialise the view model
             FoodIndexViewModel viewModel = new FoodIndexViewModel();
@@ -54,8 +54,26 @@ namespace CaloriesCount.Controllers
                 foods = foods.Where(f => f.Category.Name == category);
             }
 
+            // Sort results
+            switch (sortBy)
+            {
+                case "calories_low":
+                    foods = foods.OrderBy(f => f.Calories);
+                    break;
+                case "calories_high":
+                    foods = foods.OrderByDescending(f => f.Calories);
+                    break;
+                default:
+                    break;
+            }
             // Assign foods variable to foods property of the viewModel
             viewModel.Foods = foods;
+
+            viewModel.Sorts = new Dictionary<string, string>
+            {
+                {"Calories low to high", "calories_low" },
+                {"Calories high to low", "calories_high" }
+            };
 
             return View(viewModel);
         }

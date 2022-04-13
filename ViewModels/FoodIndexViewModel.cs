@@ -17,6 +17,12 @@ namespace CaloriesCount.ViewModels
         public IEnumerable<CategoryWithCount> CategoriesWithCounts { get; set; }
         public string Category { get; set; }
 
+        // Used as the name of the select element in the view
+        public string SortBy { get; set; }
+
+        // Hold the data to populate the select element
+        public Dictionary<string,string> Sorts { get; set; }
+
         // Return a list of select list items with generate the category names and counts
         public IEnumerable<SelectListItem> CategoryFilterItems
         {
