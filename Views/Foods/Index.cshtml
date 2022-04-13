@@ -1,11 +1,14 @@
 ﻿@model CaloriesCount.ViewModels.FoodIndexViewModel
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
+<p>
+    @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found") @Model.Foods.TotalItemCount foods
+</p>
 <p>
     @Html.ActionLink("Create New", "Create")
     @using (Html.BeginForm("Index", "Foods", "FormMethod.Get"))
@@ -74,5 +77,8 @@
         </td>
     </tr>
 }
-
 </table>
+<div>
+    Page @(Model.Foods.PageCount < Model.Foods.PageNumber ? 0 : Model.Foods.PageNumber) of @Model.Foods.PageCount
+    @Html.PagedListPager(Model.Foods, page => Url.Action("Index", new {category = Model.Category, Search = Model.Search, sortBy = Model.SortBy, page}))
+</div>

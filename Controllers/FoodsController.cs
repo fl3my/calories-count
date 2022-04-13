@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CaloriesCount.DAL;
 using CaloriesCount.Models;
 using CaloriesCount.ViewModels;
+using PagedList;
 
 namespace CaloriesCount.Controllers
 {
@@ -17,7 +18,7 @@ namespace CaloriesCount.Controllers
         private CaloriesCountContext db = new CaloriesCountContext();
 
         // GET: Foods
-        public ActionResult Index(string category, string search, string sortBy)
+        public ActionResult Index(string category, string search, string sortBy, int? page)
         {
             // Initialise the view model
             FoodIndexViewModel viewModel = new FoodIndexViewModel();
@@ -52,6 +53,7 @@ namespace CaloriesCount.Controllers
             if (!String.IsNullOrEmpty(category))
             {
                 foods = foods.Where(f => f.Category.Name == category);
+                viewModel.Category = category;
             }
 
             // Sort results
@@ -64,10 +66,19 @@ namespace CaloriesCount.Controllers
                     foods = foods.OrderByDescending(f => f.Calories);
                     break;
                 default:
+                    foods = foods.OrderBy(f => f.Name);
                     break;
             }
-            // Assign foods variable to foods property of the viewModel
-            viewModel.Foods = foods;
+
+            // set the number of items per page to 3
+            const int PageItems = 2;
+
+            // hold the current page number
+            int currentPage = (page ?? 1);
+            viewModel.Foods = foods.ToPagedList(currentPage, PageItems);
+
+            // preserve the sort order
+            viewModel.SortBy = sortBy;
 
             viewModel.Sorts = new Dictionary<string, string>
             {

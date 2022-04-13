@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace CaloriesCount.ViewModels
 {
     public class FoodIndexViewModel
     {
         // Used instead of the current model in the view
-        public IQueryable<Food> Foods { get; set; }
+        public IPagedList<Food> Foods { get; set; }
         public string Search { get; set; }
 
         // Hold all items to be used in the select form in the view
