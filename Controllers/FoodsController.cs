@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CaloriesCount.Models;
+using CaloriesCount.ViewModels;
 
 namespace CaloriesCount.Controllers
 {
@@ -15,18 +16,47 @@ namespace CaloriesCount.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Foods
-        public ActionResult Index(string category)
+        public ActionResult Index(string category, string search)
         {
+            // Initialise the view model
+            FoodIndexViewModel viewModel = new FoodIndexViewModel();
+
             // Tell Entity framework to retrive all foods and related categories
             var foods = db.Foods.Include(f => f.Category);
 
-            // If the new string parameter has a value filter the list to the category
+            // if the search property has a value, find the foods that contain the search text
+            if (!String.IsNullOrEmpty(search))
+            {
+                foods = foods.Where(f => f.Name.Contains(search) || f.Category.Name.Contains(search));
+
+                // Store the search in the viewModel so it can be reused
+                viewModel.Search = search;
+            }
+
+            // Linq Statement, query syntax
+            // Group foods together by category name where the category id is not null
+            viewModel.CategoriesWithCounts = from matchingFoods in foods
+                                           where
+                                           matchingFoods.CategoryId != null
+                                           group matchingFoods by
+                                           matchingFoods.Category.Name into
+                                           categoryGroup
+                                           select new CategoryWithCount()
+                                           {
+                                               CategoryName = categoryGroup.Key,
+                                               FoodCount = categoryGroup.Count()
+                                           };
+
+            // If the category parameter has a value, filter the list to the category
             if (!String.IsNullOrEmpty(category))
             {
                 foods = foods.Where(f => f.Category.Name == category);
             }
 
-            return View(foods.ToList());
+            // Assign foods variable to foods property of the viewModel
+            viewModel.Foods = foods;
+
+            return View(viewModel);
         }
 
         // GET: Foods/Details/5
