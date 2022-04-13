@@ -25,9 +25,9 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Foods", "Index", "Foods")</li>
+                    <li>@Html.RouteLink("Foods", "FoodsIndex")</li>
                 </ul>
-                @using (Html.BeginForm("Index", "Foods", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
                 {
                     <div class="form-group">
                         @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search Foods"})

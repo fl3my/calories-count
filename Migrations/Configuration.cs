@@ -20,12 +20,12 @@ namespace CaloriesCount.Migrations
             // Create a list of categories
             var categories = new List<Category>
             {
-                new Category {Name = "Dairy & Produce"},
+                new Category {Name = "Dairy"},
                 new Category {Name = "Vegetables"},
-                new Category {Name = "Bread & Cereals"},
+                new Category {Name = "Bread"},
                 new Category {Name = "Fruits"},
                 new Category {Name = "Seafood"},
-                new Category {Name = "Meat & Poultry"},
+                new Category {Name = "Meat"},
                 new Category {Name = "Drinks"},
                 new Category {Name = "Snacks"}
             };
