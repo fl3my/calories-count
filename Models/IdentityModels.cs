@@ -20,6 +20,10 @@ namespace CaloriesCount.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // Tell Entity framework to use the model class to represent a row in the models table
+        public DbSet<Food> Foods { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
