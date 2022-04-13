@@ -110,6 +110,13 @@ namespace CaloriesCount.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categories.Find(id);
+
+            // set categoryId to null to enable categorys with foods to delete
+            foreach (var f in category.Foods)
+            {
+                f.CategoryId = null;
+            }
+
             db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
