@@ -176,6 +176,18 @@
     <Compile Include="Migrations\202204131434445_InitialCreate.Designer.cs">
       <DependentUpon>202204131434445_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204131503334_CategoryNameValidation.cs" />
+    <Compile Include="Migrations\202204131503334_CategoryNameValidation.Designer.cs">
+      <DependentUpon>202204131503334_CategoryNameValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204131517475_ProductValidation.cs" />
+    <Compile Include="Migrations\202204131517475_ProductValidation.Designer.cs">
+      <DependentUpon>202204131517475_ProductValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204131521551_RemoveRequiredMacros.cs" />
+    <Compile Include="Migrations\202204131521551_RemoveRequiredMacros.Designer.cs">
+      <DependentUpon>202204131521551_RemoveRequiredMacros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -272,6 +284,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202204131434445_InitialCreate.resx">
       <DependentUpon>202204131434445_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204131503334_CategoryNameValidation.resx">
+      <DependentUpon>202204131503334_CategoryNameValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204131517475_ProductValidation.resx">
+      <DependentUpon>202204131517475_ProductValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204131521551_RemoveRequiredMacros.resx">
+      <DependentUpon>202204131521551_RemoveRequiredMacros.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
