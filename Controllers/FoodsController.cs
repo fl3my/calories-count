@@ -65,13 +65,19 @@ namespace CaloriesCount.Controllers
                 case "calories_high":
                     foods = foods.OrderByDescending(f => f.Calories);
                     break;
+                case "fat_low":
+                    foods = foods.OrderBy(f => f.Fat);
+                    break;
+                case "fat_high":
+                    foods = foods.OrderByDescending(f => f.Fat);
+                    break;
                 default:
                     foods = foods.OrderBy(f => f.Name);
                     break;
             }
 
             // set the number of items per page to 3
-            const int PageItems = 2;
+            const int PageItems = 6;
 
             // hold the current page number
             int currentPage = (page ?? 1);
@@ -83,7 +89,9 @@ namespace CaloriesCount.Controllers
             viewModel.Sorts = new Dictionary<string, string>
             {
                 {"Calories low to high", "calories_low" },
-                {"Calories high to low", "calories_high" }
+                {"Calories high to low", "calories_high" },
+                {"Fat low to high", "fat_low" },
+                {"Fat high to low", "fat_high" },
             };
 
             return View(viewModel);

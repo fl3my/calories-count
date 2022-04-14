@@ -15,9 +15,6 @@ namespace CaloriesCount.Models
         [RegularExpression(@"^[a-zA-Z'-'\s]*$", ErrorMessage = "Please enter a food name made up of letters only")]
         public string Name { get; set; }
 
-        [Display(Name = "Image URL")]
-        public string ImageURL { get; set; }
-
         [Required(ErrorMessage = "Calories cannot be blank")]
         [Range(1, 1000, ErrorMessage = "Please enter a calorie total between 0 and 1000")]
         [Display(Name = "Calories per 100g")]
