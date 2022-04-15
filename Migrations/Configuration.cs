@@ -47,7 +47,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0,
                     Protein = 6.7,
                     Carbohydrates = 80,
-                    fibre = 2.2,
+                    Fibre = 2.2,
                     CategoryId = categories.Single(c => c.Name == "Grains").Id
                 },
                 new Food
@@ -57,7 +57,7 @@ namespace CaloriesCount.Migrations
                     Fat = 3.1,
                     Protein = 8.3,
                     Carbohydrates = 73,
-                    fibre = 4.2,
+                    Fibre = 4.2,
                     CategoryId = categories.Single(c => c.Name == "Grains").Id
                 },
                 new Food
@@ -67,7 +67,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0,
                     Protein = 0,
                     Carbohydrates =14 ,
-                    fibre = 1.5,
+                    Fibre = 1.5,
                     CategoryId = categories.Single(c => c.Name == "Fruits").Id
                 },
                 new Food
@@ -77,7 +77,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0.55,
                     Protein = 1.8,
                     Carbohydrates = 42,
-                    fibre = 2,
+                    Fibre = 2,
                     CategoryId = categories.Single(c => c.Name == "Fruits").Id
                 },
                 new Food
@@ -87,7 +87,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0.55,
                     Protein = 1.8,
                     Carbohydrates = 42,
-                    fibre = 2,
+                    Fibre = 2,
                     CategoryId = categories.Single(c => c.Name == "Fruits").Id
                 },
                 new Food
@@ -97,7 +97,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0,
                     Protein = 1.7,
                     Carbohydrates = 20,
-                    fibre = 2.6,
+                    Fibre = 2.6,
                     CategoryId = categories.Single(c => c.Name == "Vegetables").Id
                 },
                 new Food
@@ -107,7 +107,7 @@ namespace CaloriesCount.Migrations
                     Fat = 0,
                     Protein = 2.4,
                     Carbohydrates = 4.7,
-                    fibre = 2.4,
+                    Fibre = 2.4,
                     CategoryId = categories.Single(c => c.Name == "Vegetables").Id
                 },
                 new Food
@@ -117,7 +117,7 @@ namespace CaloriesCount.Migrations
                     Fat = 3.2,
                     Protein = 21,
                     Carbohydrates = 0.4,
-                    fibre = 0,
+                    Fibre = 0,
                     CategoryId = categories.Single(c => c.Name == "Meat").Id
                 },
                 new Food
@@ -127,7 +127,7 @@ namespace CaloriesCount.Migrations
                     Fat = 6,
                     Protein = 20,
                     Carbohydrates = 0,
-                    fibre = 0,
+                    Fibre = 0,
                     CategoryId = categories.Single(c => c.Name == "Seafood").Id
                 },
                 new Food
@@ -137,7 +137,7 @@ namespace CaloriesCount.Migrations
                     Fat = 33,
                     Protein = 27,
                     Carbohydrates = 4.2,
-                    fibre = 0,
+                    Fibre = 0,
                     CategoryId = categories.Single(c => c.Name == "Dairy").Id
                 },
                 new Food
@@ -147,7 +147,7 @@ namespace CaloriesCount.Migrations
                     Fat = 4.4,
                     Protein = 12,
                     Carbohydrates = 4.4,
-                    fibre = 0,
+                    Fibre = 0,
                     CategoryId = categories.Single(c => c.Name == "Dairy").Id
                 },
                 new Food
@@ -157,7 +157,7 @@ namespace CaloriesCount.Migrations
                     Fat = 30,
                     Protein = 5,
                     Carbohydrates = 60,
-                    fibre = 2.5,
+                    Fibre = 2.5,
                     CategoryId = categories.Single(c => c.Name == "Snacks").Id
                 },
                 new Food
@@ -167,7 +167,7 @@ namespace CaloriesCount.Migrations
                     Fat = 33,
                     Protein = 5,
                     Carbohydrates = 48,
-                    fibre = 7.5,
+                    Fibre = 7.5,
                     CategoryId = categories.Single(c => c.Name == "Snacks").Id
                 }
             };

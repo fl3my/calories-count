@@ -124,7 +124,7 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,fibre,CategoryId")] Food food)
+        public ActionResult Create([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,Fibre,CategoryId")] Food food)
         {
             if (ModelState.IsValid)
             {
@@ -158,7 +158,7 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,fibre,CategoryId")] Food food)
+        public ActionResult Edit([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,Fibre,CategoryId")] Food food)
         {
             if (ModelState.IsValid)
             {

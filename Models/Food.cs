@@ -34,7 +34,7 @@ namespace CaloriesCount.Models
 
         [Range(0, 1000, ErrorMessage = "Please enter a fibre total between 0 and 1000")]
         [Display(Name = "Fibre per 100g")]
-        public double? fibre { get; set; }
+        public double? Fibre { get; set; }
 
         // Navigational Property
 
