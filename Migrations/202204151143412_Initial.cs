@@ -3,7 +3,7 @@ namespace CaloriesCount.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace CaloriesCount.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 40),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -21,13 +21,12 @@ namespace CaloriesCount.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        ImageURL = c.String(),
+                        Name = c.String(nullable: false, maxLength: 40),
                         Calories = c.Int(nullable: false),
-                        Fat = c.Double(nullable: false),
-                        Protein = c.Double(nullable: false),
-                        Carbohydrates = c.Double(nullable: false),
-                        fibre = c.Double(nullable: false),
+                        Fat = c.Double(),
+                        Protein = c.Double(),
+                        Carbohydrates = c.Double(),
+                        Fibre = c.Double(),
                         CategoryId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)

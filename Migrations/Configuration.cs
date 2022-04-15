@@ -12,7 +12,6 @@ namespace CaloriesCount.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "CaloriesCount.DAL.CaloriesCountContext";
         }
 
         protected override void Seed(CaloriesCount.DAL.CaloriesCountContext context)
