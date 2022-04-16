@@ -191,6 +191,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
@@ -200,9 +201,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204151143412_Initial.cs" />
-    <Compile Include="Migrations\202204151143412_Initial.Designer.cs">
-      <DependentUpon>202204151143412_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202204151345130_Initial.cs" />
+    <Compile Include="Migrations\202204151345130_Initial.Designer.cs">
+      <DependentUpon>202204151345130_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204151548192_AddImageProp.cs" />
+    <Compile Include="Migrations\202204151548192_AddImageProp.Designer.cs">
+      <DependentUpon>202204151548192_AddImageProp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -213,6 +218,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FoodIndexViewModel.cs" />
+    <Compile Include="ViewModels\FoodViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -284,6 +290,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\FoodImages\Thumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -299,8 +306,11 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204151143412_Initial.resx">
-      <DependentUpon>202204151143412_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204151345130_Initial.resx">
+      <DependentUpon>202204151345130_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204151548192_AddImageProp.resx">
+      <DependentUpon>202204151548192_AddImageProp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

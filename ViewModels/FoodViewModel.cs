@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
-namespace CaloriesCount.Models
+namespace CaloriesCount.ViewModels
 {
-    public class Food
+    public class FoodViewModel
     {
+        // Properties duplicated from the Food model
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "The food name cannot be blank")]
@@ -39,8 +41,11 @@ namespace CaloriesCount.Models
         public string FoodImage { get; set; }
 
         // Navigational Property
+        public int CategoryId { get; set; }
 
-        public int? CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        // Extra properties for the viewModel
+        public SelectList CategoryList { get; set; }
+
+        public HttpPostedFileBase file { get; set; }
     }
 }

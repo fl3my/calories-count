@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using CaloriesCount.DAL;
 using CaloriesCount.Models;
@@ -76,12 +77,9 @@ namespace CaloriesCount.Controllers
                     break;
             }
 
-            // set the number of items per page to 3
-            const int PageItems = 6;
-
             // hold the current page number
             int currentPage = (page ?? 1);
-            viewModel.Foods = foods.ToPagedList(currentPage, PageItems);
+            viewModel.Foods = foods.ToPagedList(currentPage, Constants.PageItems);
 
             // preserve the sort order
             viewModel.SortBy = sortBy;
@@ -115,8 +113,12 @@ namespace CaloriesCount.Controllers
         // GET: Foods/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
-            return View();
+            FoodViewModel viewModel = new FoodViewModel();
+
+            // Pass the categories list into the view
+            viewModel.CategoryList = new SelectList(db.Categories, "Id", "Name");
+
+            return View(viewModel);
         }
 
         // POST: Foods/Create
@@ -124,8 +126,49 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,Fibre,CategoryId")] Food food)
+        public ActionResult Create(FoodViewModel viewModel)
         {
+            // Manually bind properties
+
+            Food food = new Food();
+            food.Name = viewModel.Name;
+            food.Calories = viewModel.Calories;
+            food.Fat = viewModel.Fat;
+            food.Protein = viewModel.Protein;
+            food.Carbohydrates = viewModel.Carbohydrates;
+            food.Fibre = viewModel.Fibre;
+            food.CategoryId = viewModel.CategoryId;
+
+            HttpPostedFileBase file = viewModel.file;
+
+            // check if the user has entered a file
+            if (file != null)
+            {
+                // Check if the file is valid
+                if (ValidateFile(file))
+                {
+                    try
+                    {
+                        SaveFileToDisk(file);
+                    }
+                    catch (Exception)
+                    {
+                        ModelState.AddModelError("FoodImage", "Sorry an error occurred saving the file to disk, please try again");
+                    }
+
+                    // Bind the filename of the image that is now saved into the image directory to the food model
+                    food.FoodImage = file.FileName;
+                } else
+                {
+                    ModelState.AddModelError("FoodImage", "The file must be gif, png, jpeg or jpg and less than 2MB in size");
+                }
+            } else
+            {
+                // return an error message if no file is entered
+                ModelState.AddModelError("FoodImage", "Please choose a file");
+            }
+
+            // Check if model state is valid
             if (ModelState.IsValid)
             {
                 db.Foods.Add(food);
@@ -133,8 +176,10 @@ namespace CaloriesCount.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", food.CategoryId);
-            return View(food);
+            // Pass the categories list to the view
+            viewModel.CategoryList = new SelectList(db.Categories, "Id", "Name", food.CategoryId);
+
+            return View(viewModel);
         }
 
         // GET: Foods/Edit/5
@@ -203,6 +248,44 @@ namespace CaloriesCount.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool ValidateFile(HttpPostedFileBase file)
+        {
+            // Get the extension type from the file
+            string fileExtension = System.IO.Path.GetExtension(file.FileName).ToLower();
+
+            // Array of allowed extensions
+            string[] allowedFileTypes = { ".gif", ".png", ".jpeg", ".jpg" };
+
+            // If the file is less than 2MB and has the allowed file extension return true
+            if ((file.ContentLength > 0 && file.ContentLength < 2097152) && allowedFileTypes.Contains(fileExtension))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void SaveFileToDisk(HttpPostedFileBase file)
+        {
+            // Use WebImage class to resize the images
+            WebImage image = new WebImage(file.InputStream);
+
+            // If image is more than 190 pixels wide resize
+            if (image.Width > 190)
+            {
+                image.Resize(190, image.Height);
+            }
+
+            // Save the image to the directory
+            image.Save(Constants.FoodImagePath + file.FileName);
+
+            if (image.Width > 100)
+            {
+                image.Resize(100, image.Height);
+            }
+
+            image.Save(Constants.FoodThumbnailPath + file.FileName);
         }
     }
 }

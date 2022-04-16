@@ -81,16 +81,6 @@ namespace CaloriesCount.Migrations
                 },
                 new Food
                 {
-                    Name = "Banana",
-                    Calories = 181,
-                    Fat = 0.55,
-                    Protein = 1.8,
-                    Carbohydrates = 42,
-                    Fibre = 2,
-                    CategoryId = categories.Single(c => c.Name == "Fruits").Id
-                },
-                new Food
-                {
                     Name = "Sweet Potato",
                     Calories = 99,
                     Fat = 0,

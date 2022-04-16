@@ -13,7 +13,7 @@ namespace CaloriesCount.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202204151143412_Initial"; }
+            get { return "202204151345130_Initial"; }
         }
         
         string IMigrationMetadata.Source
