@@ -229,6 +229,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FoodImages\apple_on_white.jpg" />
+    <Content Include="Content\FoodImages\banana_bunch.jpg" />
+    <Content Include="Content\FoodImages\basmati_rice.jpg" />
+    <Content Include="Content\FoodImages\block_chocolate.jpg" />
+    <Content Include="Content\FoodImages\broccoli.jpg" />
+    <Content Include="Content\FoodImages\carving_roast_chicken.jpg" />
+    <Content Include="Content\FoodImages\cheese_grated.jpg" />
+    <Content Include="Content\FoodImages\cooking_salmon.jpg" />
+    <Content Include="Content\FoodImages\cottage_cheese.jpg" />
+    <Content Include="Content\FoodImages\new_potatoes.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

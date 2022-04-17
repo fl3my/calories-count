@@ -128,9 +128,9 @@ namespace CaloriesCount.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FoodViewModel viewModel)
         {
-            // Manually bind properties
             Food food = new Food();
 
+            // Manually bind properties from the viewModel to the food model
             food.Name = viewModel.Name;
             food.Calories = viewModel.Calories;
             food.Fat = viewModel.Fat;
@@ -139,6 +139,7 @@ namespace CaloriesCount.Controllers
             food.Fibre = viewModel.Fibre;
             food.CategoryId = viewModel.CategoryId;
 
+            // Get the file posted from the viewModel
             HttpPostedFileBase file = viewModel.file;
 
             // check if the user has entered a file
@@ -147,9 +148,12 @@ namespace CaloriesCount.Controllers
                 // Check if the file is valid
                 if (ValidateFile(file))
                 {
+                    // Use a globally unique identifier to name the new file to prevent duplication errors in the directory
+                    string uniqueFileName = Guid.NewGuid() + System.IO.Path.GetExtension(file.FileName).ToLower();
+
                     try
                     {
-                        SaveFileToDisk(file);
+                        SaveFileToDisk(file, uniqueFileName);
                     }
                     catch (Exception)
                     {
@@ -157,7 +161,7 @@ namespace CaloriesCount.Controllers
                     }
 
                     // Bind the filename of the image that is now saved into the image directory to the food model
-                    food.ImageFileName = file.FileName;
+                    food.ImageFileName = uniqueFileName;
                 } else
                 {
                     ModelState.AddModelError("ImageFileName", "The file must be gif, png, jpeg or jpg and less than 2MB in size");
@@ -241,8 +245,10 @@ namespace CaloriesCount.Controllers
             System.IO.File.Delete(Request.MapPath(Constants.FoodImagePath + food.ImageFileName));
             System.IO.File.Delete(Request.MapPath(Constants.FoodThumbnailPath + food.ImageFileName));
 
+            // Remove the food from the database
             db.Foods.Remove(food);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -271,7 +277,7 @@ namespace CaloriesCount.Controllers
             return false;
         }
 
-        private void SaveFileToDisk(HttpPostedFileBase file)
+        private void SaveFileToDisk(HttpPostedFileBase file, string uniqueFileName)
         {
             // Use WebImage class to resize the images
             WebImage image = new WebImage(file.InputStream);
@@ -283,14 +289,14 @@ namespace CaloriesCount.Controllers
             }
 
             // Save the image to the directory
-            image.Save(Constants.FoodImagePath + file.FileName);
+            image.Save(Constants.FoodImagePath + uniqueFileName);
 
             if (image.Width > 100)
             {
                 image.Resize(100, image.Height);
             }
 
-            image.Save(Constants.FoodThumbnailPath + file.FileName);
+            image.Save(Constants.FoodThumbnailPath + uniqueFileName);
         }
     }
 }

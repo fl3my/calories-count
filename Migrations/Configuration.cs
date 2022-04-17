@@ -47,16 +47,7 @@ namespace CaloriesCount.Migrations
                     Protein = 6.7,
                     Carbohydrates = 80,
                     Fibre = 2.2,
-                    CategoryId = categories.Single(c => c.Name == "Grains").Id
-                },
-                new Food
-                {
-                    Name = "Brown rice Raw",
-                    Calories = 354,
-                    Fat = 3.1,
-                    Protein = 8.3,
-                    Carbohydrates = 73,
-                    Fibre = 4.2,
+                    ImageFileName = "basmati_rice.jpg",
                     CategoryId = categories.Single(c => c.Name == "Grains").Id
                 },
                 new Food
@@ -67,6 +58,7 @@ namespace CaloriesCount.Migrations
                     Protein = 0,
                     Carbohydrates =14 ,
                     Fibre = 1.5,
+                    ImageFileName = "apple_on_white.jpg",
                     CategoryId = categories.Single(c => c.Name == "Fruits").Id
                 },
                 new Food
@@ -77,6 +69,7 @@ namespace CaloriesCount.Migrations
                     Protein = 1.8,
                     Carbohydrates = 42,
                     Fibre = 2,
+                    ImageFileName = "banana_bunch.jpg",
                     CategoryId = categories.Single(c => c.Name == "Fruits").Id
                 },
                 new Food
@@ -87,6 +80,7 @@ namespace CaloriesCount.Migrations
                     Protein = 1.7,
                     Carbohydrates = 20,
                     Fibre = 2.6,
+                    ImageFileName = "new_potatoes.jpg",
                     CategoryId = categories.Single(c => c.Name == "Vegetables").Id
                 },
                 new Food
@@ -97,6 +91,7 @@ namespace CaloriesCount.Migrations
                     Protein = 2.4,
                     Carbohydrates = 4.7,
                     Fibre = 2.4,
+                    ImageFileName = "broccoli.jpg",
                     CategoryId = categories.Single(c => c.Name == "Vegetables").Id
                 },
                 new Food
@@ -107,6 +102,7 @@ namespace CaloriesCount.Migrations
                     Protein = 21,
                     Carbohydrates = 0.4,
                     Fibre = 0,
+                    ImageFileName = "carving_roast_chicken.jpg",
                     CategoryId = categories.Single(c => c.Name == "Meat").Id
                 },
                 new Food
@@ -117,6 +113,7 @@ namespace CaloriesCount.Migrations
                     Protein = 20,
                     Carbohydrates = 0,
                     Fibre = 0,
+                    ImageFileName = "cooking_salmon.jpg",
                     CategoryId = categories.Single(c => c.Name == "Seafood").Id
                 },
                 new Food
@@ -127,6 +124,7 @@ namespace CaloriesCount.Migrations
                     Protein = 27,
                     Carbohydrates = 4.2,
                     Fibre = 0,
+                    ImageFileName = "cheese_grated.jpg",
                     CategoryId = categories.Single(c => c.Name == "Dairy").Id
                 },
                 new Food
@@ -137,17 +135,8 @@ namespace CaloriesCount.Migrations
                     Protein = 12,
                     Carbohydrates = 4.4,
                     Fibre = 0,
+                    ImageFileName = "cottage_cheese.jpg",
                     CategoryId = categories.Single(c => c.Name == "Dairy").Id
-                },
-                new Food
-                {
-                    Name = "Milk Chocolate",
-                    Calories = 525,
-                    Fat = 30,
-                    Protein = 5,
-                    Carbohydrates = 60,
-                    Fibre = 2.5,
-                    CategoryId = categories.Single(c => c.Name == "Snacks").Id
                 },
                 new Food
                 {
@@ -157,6 +146,7 @@ namespace CaloriesCount.Migrations
                     Protein = 5,
                     Carbohydrates = 48,
                     Fibre = 7.5,
+                    ImageFileName = "block_chocolate.jpg",
                     CategoryId = categories.Single(c => c.Name == "Snacks").Id
                 }
             };

@@ -66,6 +66,13 @@
             @Html.DisplayFor(model => model.Fibre)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageFileName)
+        </dt>
+
+        <dd>
+            <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" />
+        </dd>
     </dl>
 </div>
 <p>

@@ -23,6 +23,7 @@
 </p>
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
@@ -49,6 +50,9 @@
 
 @foreach (var item in Model.Foods) {
     <tr>
+        <td>
+            <img src="@(Url.Content(Constants.FoodThumbnailPath) + item.ImageFileName)" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
