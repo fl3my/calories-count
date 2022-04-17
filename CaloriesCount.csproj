@@ -209,6 +209,10 @@
     <Compile Include="Migrations\202204151548192_AddImageProp.Designer.cs">
       <DependentUpon>202204151548192_AddImageProp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204171754008_ChangedNames.cs" />
+    <Compile Include="Migrations\202204171754008_ChangedNames.Designer.cs">
+      <DependentUpon>202204171754008_ChangedNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204151548192_AddImageProp.resx">
       <DependentUpon>202204151548192_AddImageProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204171754008_ChangedNames.resx">
+      <DependentUpon>202204171754008_ChangedNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CaloriesCount.Models
 {
@@ -36,10 +32,12 @@ namespace CaloriesCount.Models
         [Display(Name = "Fibre per 100g")]
         public double? Fibre { get; set; }
 
-        public string FoodImage { get; set; }
+        [Display(Name = ("File Name"))]
+        public string ImageFileName { get; set; }
 
         // Navigational Property
 
+        [Display(Name = ("Category"))]
         public int? CategoryId { get; set; }
         public virtual Category Category { get; set; }
     }

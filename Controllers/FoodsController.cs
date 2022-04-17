@@ -129,8 +129,8 @@ namespace CaloriesCount.Controllers
         public ActionResult Create(FoodViewModel viewModel)
         {
             // Manually bind properties
-
             Food food = new Food();
+
             food.Name = viewModel.Name;
             food.Calories = viewModel.Calories;
             food.Fat = viewModel.Fat;
@@ -153,19 +153,19 @@ namespace CaloriesCount.Controllers
                     }
                     catch (Exception)
                     {
-                        ModelState.AddModelError("FoodImage", "Sorry an error occurred saving the file to disk, please try again");
+                        ModelState.AddModelError("ImageFileName", "Sorry an error occurred saving the file to disk, please try again");
                     }
 
                     // Bind the filename of the image that is now saved into the image directory to the food model
-                    food.FoodImage = file.FileName;
+                    food.ImageFileName = file.FileName;
                 } else
                 {
-                    ModelState.AddModelError("FoodImage", "The file must be gif, png, jpeg or jpg and less than 2MB in size");
+                    ModelState.AddModelError("ImageFileName", "The file must be gif, png, jpeg or jpg and less than 2MB in size");
                 }
             } else
             {
                 // return an error message if no file is entered
-                ModelState.AddModelError("FoodImage", "Please choose a file");
+                ModelState.AddModelError("ImageFileName", "Please choose a file");
             }
 
             // Check if model state is valid
@@ -236,6 +236,11 @@ namespace CaloriesCount.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Food food = db.Foods.Find(id);
+
+            // Remove the files from the directory
+            System.IO.File.Delete(Request.MapPath(Constants.FoodImagePath + food.ImageFileName));
+            System.IO.File.Delete(Request.MapPath(Constants.FoodThumbnailPath + food.ImageFileName));
+
             db.Foods.Remove(food);
             db.SaveChanges();
             return RedirectToAction("Index");
