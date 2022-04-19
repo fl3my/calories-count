@@ -24,19 +24,19 @@ namespace CaloriesCount.ViewModels
 
         [Range(0, 1000, ErrorMessage = "Please enter a fat total between 0 and 1000")]
         [Display(Name = "Fat per 100g")]
-        public double? Fat { get; set; }
+        public double Fat { get; set; }
 
         [Range(0, 1000, ErrorMessage = "Please enter a protein total between 0 and 1000")]
         [Display(Name = "Protein per 100g")]
-        public double? Protein { get; set; }
+        public double Protein { get; set; }
 
         [Range(0, 1000, ErrorMessage = "Please enter a carbohydrate total between 0 and 1000")]
         [Display(Name = "Carbohydrates per 100g")]
-        public double? Carbohydrates { get; set; }
+        public double Carbohydrates { get; set; }
 
         [Range(0, 1000, ErrorMessage = "Please enter a fibre total between 0 and 1000")]
         [Display(Name = "Fibre per 100g")]
-        public double? Fibre { get; set; }
+        public double Fibre { get; set; }
 
         [Display(Name = ("File Name"))]
         public string ImageFileName { get; set; }
