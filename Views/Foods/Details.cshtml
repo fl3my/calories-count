@@ -74,8 +74,64 @@
             <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" />
         </dd>
     </dl>
+    <div class="chart-container" style="height:20vh; width:20vw">
+        <canvas id="MacroChart"></canvas>
+    </div>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@section Scripts
+{
+    <!-- Add ChartJS by CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Generate the macronutrient doughnut chart-->
+    <script type="text/javascript">
+
+        // Get chart canvas
+        const ctx = document.getElementById("MacroChart");
+
+        // Set the data
+        const data = {
+            labels: [
+                'Protein',
+                'Carbohydrates',
+                'Fats'
+            ],
+            datasets: [{
+                label: 'Macronutrient dataset',
+                data: [@Model.Protein, @Model.Carbohydrates, @Model.Fat],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        // Add gram unit to item value on hover
+        const options = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: (ttItem) => (`${ttItem.label}: ${ttItem.parsed} g`)
+                    }
+                }
+            }
+        }
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: options
+        };
+
+        var macroChart = new Chart(ctx, config );
+
+    </script>
+}
