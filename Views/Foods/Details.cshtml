@@ -9,76 +9,91 @@
 <div>
     <h4>Food</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
+    <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" class="img-responsive" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Food Description</h3>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Category.Name)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Calories)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Category.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Calories)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fat)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fat)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Calories)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Protein)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Calories)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Protein)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fat)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Carbohydrates)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Fat)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Carbohydrates)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Protein)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fibre)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Protein)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fibre)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Carbohydrates)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageFileName)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Carbohydrates)
+                        </dd>
 
-        <dd>
-            <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" />
-        </dd>
-    </dl>
-    <div class="chart-container" style="height:20vh; width:20vw">
-        <canvas id="MacroChart"></canvas>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fibre)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fibre)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Macronutrient content</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="MacroChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
