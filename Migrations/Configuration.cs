@@ -1,7 +1,8 @@
 namespace CaloriesCount.Migrations
 {
     using CaloriesCount.Models;
-    using System;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -153,6 +154,70 @@ namespace CaloriesCount.Migrations
 
             foods.ForEach(c => context.Foods.AddOrUpdate(f => f.Name, c));
             context.SaveChanges();
+
+                // Create a few roles and store them in roles table
+
+                // Create a role Manager object that will allow us to create roles
+                RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+                // If the Admin role doesnt exist
+                if (!roleManager.RoleExists("Admin"))
+                {
+                    // Create an admin role
+                    roleManager.Create(new IdentityRole("Admin"));
+                }
+
+                // If the member role doesnt exist
+                if (!roleManager.RoleExists("Member"))
+                {
+                    // create a Member role
+                    roleManager.Create(new IdentityRole("Member"));
+                }
+
+                context.SaveChanges();
+
+                // Create some users and assign to different roles
+
+                UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+                // Create a user admin
+                if (userManager.FindByName("admin@admin.com") == null)
+                {
+                    var admin = new ApplicationUser()
+                    {
+                        UserName = "admin@admin.com",
+                        Email = "admin@admin.com",
+                        FirstName = "Ross",
+                        LastName = "Fleming",
+                        EmailConfirmed = true
+
+                    };
+
+                    // add a hashed password to the user
+                    userManager.Create(admin, "Admin123!");
+
+                    // add the user to the role Admin
+                    userManager.AddToRole(admin.Id, "Admin");
+                }
+
+                // Create a member
+                var member = new ApplicationUser()
+                {
+                    UserName = "member@member.com",
+                    Email = "member@member.com",
+                    FirstName = "Member",
+                    LastName = "Memberton",
+                    EmailConfirmed = true
+                };
+
+                if (userManager.FindByName("member@member.com") == null)
+                {
+                    userManager.Create(member, "Password123!");
+                    userManager.AddToRole(member.Id, "Member");
+                }
+
+                context.SaveChanges();
+            
         }
     }
 }
