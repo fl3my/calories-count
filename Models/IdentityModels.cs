@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,6 +19,9 @@ namespace CaloriesCount.Models
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
+        // Navigational 
+        public virtual ICollection<DiaryEntry> DiaryEntries { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

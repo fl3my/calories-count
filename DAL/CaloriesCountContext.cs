@@ -14,6 +14,7 @@ namespace CaloriesCount.DAL
         public DbSet<Food> Foods { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<DiaryEntry> DiaryEntries { get; set; }
         public CaloriesCountContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

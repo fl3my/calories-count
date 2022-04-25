@@ -225,9 +225,14 @@
     <Compile Include="Migrations\202204251159590_AddRoles.Designer.cs">
       <DependentUpon>202204251159590_AddRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204251220275_AddDiaryEntries.cs" />
+    <Compile Include="Migrations\202204251220275_AddDiaryEntries.Designer.cs">
+      <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DiaryEntry.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -350,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204251159590_AddRoles.resx">
       <DependentUpon>202204251159590_AddRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204251220275_AddDiaryEntries.resx">
+      <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
