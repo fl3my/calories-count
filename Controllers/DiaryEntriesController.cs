@@ -20,22 +20,38 @@ namespace CaloriesCount.Controllers
         // GET: DiaryEntries
         public ActionResult Index()
         {
-            var diaryEntries = db.DiaryEntries.Include(d => d.Food).Include(d => d.User);
+            string userId = User.Identity.GetUserId();
+
+            // Return the diary entries created by the user
+            var diaryEntries = db.DiaryEntries
+                .Include(d => d.Food)
+                .Include(d => d.User)
+                .Where(d => d.UserId == userId);
+
             return View(diaryEntries.ToList());
         }
 
         // GET: DiaryEntries/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaryEntry diaryEntry = db.DiaryEntries.Find(id);
+
+            string userId = User.Identity.GetUserId();
+
+            // Return a the diary entry only if it was created by the current user
+            DiaryEntry diaryEntry = db.DiaryEntries
+                .Where(d => d.UserId == userId)
+                .FirstOrDefault(d => d.Id == id);
+
             if (diaryEntry == null)
             {
                 return HttpNotFound();
             }
+
             return View(diaryEntry);
         }
 
@@ -77,7 +93,14 @@ namespace CaloriesCount.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DiaryEntry diaryEntry = db.DiaryEntries.Find(id);
+
+            string userId = User.Identity.GetUserId();
+
+            // Return a the diary entry only if it was created by the current user
+            DiaryEntry diaryEntry = db.DiaryEntries
+                .Where(d => d.UserId == userId)
+                .FirstOrDefault(d => d.Id == id);
+
             if (diaryEntry == null)
             {
                 return HttpNotFound();
@@ -125,7 +148,13 @@ namespace CaloriesCount.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DiaryEntry diaryEntry = db.DiaryEntries.Find(id);
+            string userId = User.Identity.GetUserId();
+
+            // Return a the diary entry only if it was created by the current user
+            DiaryEntry diaryEntry = db.DiaryEntries
+                .Where(d => d.UserId == userId)
+                .FirstOrDefault(d => d.Id == id);
+
             db.DiaryEntries.Remove(diaryEntry);
             db.SaveChanges();
             return RedirectToAction("Index");
