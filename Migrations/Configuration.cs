@@ -13,6 +13,7 @@ namespace CaloriesCount.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(CaloriesCount.DAL.CaloriesCountContext context)

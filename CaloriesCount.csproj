@@ -194,6 +194,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\DiaryEntriesController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -228,6 +229,10 @@
     <Compile Include="Migrations\202204251220275_AddDiaryEntries.cs" />
     <Compile Include="Migrations\202204251220275_AddDiaryEntries.Designer.cs">
       <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204261218409_AddNewFields.cs" />
+    <Compile Include="Migrations\202204261218409_AddNewFields.Designer.cs">
+      <DependentUpon>202204261218409_AddNewFields.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -318,6 +323,11 @@
     <Content Include="Views\Foods\Details.cshtml" />
     <Content Include="Views\Foods\Edit.cshtml" />
     <Content Include="Views\Foods\Index.cshtml" />
+    <Content Include="Views\DiaryEntries\Create.cshtml" />
+    <Content Include="Views\DiaryEntries\Delete.cshtml" />
+    <Content Include="Views\DiaryEntries\Details.cshtml" />
+    <Content Include="Views\DiaryEntries\Edit.cshtml" />
+    <Content Include="Views\DiaryEntries\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204251220275_AddDiaryEntries.resx">
       <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204261218409_AddNewFields.resx">
+      <DependentUpon>202204261218409_AddNewFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
