@@ -14,7 +14,7 @@ namespace CaloriesCount.Models
         [Required(ErrorMessage = "Calories cannot be blank")]
         [Range(1, 1000, ErrorMessage = "Please enter a calorie total between 0 and 1000")]
         [Display(Name = "Calories per 100g")]
-        public int Calories { get; set; }
+        public decimal Calories { get; set; }
 
         [Range(0, 1000, ErrorMessage = "Please enter a fat total between 0 and 1000")]
         [Display(Name = "Fat per 100g")]

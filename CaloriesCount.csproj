@@ -230,9 +230,9 @@
     <Compile Include="Migrations\202204251220275_AddDiaryEntries.Designer.cs">
       <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204261218409_AddNewFields.cs" />
-    <Compile Include="Migrations\202204261218409_AddNewFields.Designer.cs">
-      <DependentUpon>202204261218409_AddNewFields.cs</DependentUpon>
+    <Compile Include="Migrations\202204261230103_AddQuantity.cs" />
+    <Compile Include="Migrations\202204261230103_AddQuantity.Designer.cs">
+      <DependentUpon>202204261230103_AddQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -369,8 +369,8 @@
     <EmbeddedResource Include="Migrations\202204251220275_AddDiaryEntries.resx">
       <DependentUpon>202204251220275_AddDiaryEntries.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204261218409_AddNewFields.resx">
-      <DependentUpon>202204261218409_AddNewFields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204261230103_AddQuantity.resx">
+      <DependentUpon>202204261230103_AddQuantity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

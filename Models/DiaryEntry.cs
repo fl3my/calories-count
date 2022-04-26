@@ -28,11 +28,11 @@ namespace CaloriesCount.Models
         [Required]
         [Range(1, 1000, ErrorMessage = "Please enter a quantity total between 1 and 1000")]
         [Display(Name = "Quantity in grams")]
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
         // Calculated Property
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public double TotalCalories 
+        public decimal TotalCalories 
         {
             get { return db.Foods.Find(FoodId).Calories / 100 * Quantity;  }
             private set { }

@@ -7,13 +7,13 @@ namespace CaloriesCount.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddNewFields : IMigrationMetadata
+    public sealed partial class AddQuantity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNewFields));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddQuantity));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204261218409_AddNewFields"; }
+            get { return "202204261230103_AddQuantity"; }
         }
         
         string IMigrationMetadata.Source
