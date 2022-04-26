@@ -234,6 +234,10 @@
     <Compile Include="Migrations\202204261230103_AddQuantity.Designer.cs">
       <DependentUpon>202204261230103_AddQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204261902016_removeCalculatedfield.cs" />
+    <Compile Include="Migrations\202204261902016_removeCalculatedfield.Designer.cs">
+      <DependentUpon>202204261902016_removeCalculatedfield.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -370,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204261230103_AddQuantity.resx">
       <DependentUpon>202204261230103_AddQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204261902016_removeCalculatedfield.resx">
+      <DependentUpon>202204261902016_removeCalculatedfield.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,9 +10,6 @@ namespace CaloriesCount.Models
 {
     public class DiaryEntry
     {
-
-        CaloriesCountContext db = new CaloriesCountContext();
-
         [Key]
         public int Id { get; set; }
 
@@ -27,17 +24,12 @@ namespace CaloriesCount.Models
 
         [Required]
         [Range(1, 1000, ErrorMessage = "Please enter a quantity total between 1 and 1000")]
-        [Display(Name = "Quantity in grams")]
+        [Display(Name = "Quantity (g)")]
         public decimal Quantity { get; set; }
 
-        // Calculated Property
-        [Display(Name = "Total Calories")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public decimal TotalCalories 
-        {
-            get { return db.Foods.Find(FoodId).Calories / 100 * Quantity;  }
-            private set { }
-        }
+
+        [Display(Name = "Total Calories (Kcal)")]
+        public decimal TotalCalories { get; set; }
 
         // Navigational Property
 
