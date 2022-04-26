@@ -95,6 +95,7 @@
 </div>
 
 <p>
+    @Html.ActionLink("Add to Diary", "Create", "DiaryEntries", new { foodId = Model.Id }, null)
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

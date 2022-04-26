@@ -31,6 +31,7 @@ namespace CaloriesCount.Models
         public decimal Quantity { get; set; }
 
         // Calculated Property
+        [Display(Name = "Total Calories")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal TotalCalories 
         {

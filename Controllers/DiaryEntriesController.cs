@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using CaloriesCount.DAL;
 using CaloriesCount.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CaloriesCount.Controllers
 {
+    [Authorize]
     public class DiaryEntriesController : Controller
     {
         private CaloriesCountContext db = new CaloriesCountContext();
@@ -38,10 +40,11 @@ namespace CaloriesCount.Controllers
         }
 
         // GET: DiaryEntries/Create
-        public ActionResult Create()
+        public ActionResult Create(int? foodId)
         {
-            ViewBag.FoodId = new SelectList(db.Foods, "Id", "Name");
-            ViewBag.UserId = new SelectList(db.Users, "Id", "FirstName");
+            // Set default select box item when navgiated from food menu
+            ViewBag.FoodId = new SelectList(db.Foods, "Id", "Name", foodId);
+
             return View();
         }
 
@@ -50,8 +53,11 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,DateAdded,UserId,Quantity,TotalCalories,FoodId")] DiaryEntry diaryEntry)
+        public ActionResult Create([Bind(Include = "Id,Quantity,TotalCalories,FoodId")] DiaryEntry diaryEntry)
         {
+            diaryEntry.DateAdded = DateTime.Now;
+            diaryEntry.UserId = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
                 db.DiaryEntries.Add(diaryEntry);
@@ -86,7 +92,7 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DateAdded,UserId,Quantity,TotalCalories,FoodId")] DiaryEntry diaryEntry)
+        public ActionResult Edit([Bind(Include = "Id,DateAdded,Quantity,TotalCalories,FoodId")] DiaryEntry diaryEntry)
         {
             if (ModelState.IsValid)
             {
