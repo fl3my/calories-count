@@ -111,6 +111,7 @@ namespace CaloriesCount.Controllers
         }
 
         // GET: Foods/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             FoodViewModel viewModel = new FoodViewModel();
@@ -126,6 +127,7 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(FoodViewModel viewModel)
         {
             Food food = new Food();
