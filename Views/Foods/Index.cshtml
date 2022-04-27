@@ -15,7 +15,7 @@
 
     @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "form-inline" }))
     {
-    <div class="form-group" style="background-color: #ecf0f1; padding: 15px 20px 15px 20px; border-radius: 5px; margin-bottom:10px;">
+    <div class="form-group">
         <label for="filter">Filter by category:</label>
         @Html.DropDownListFor(vm => vm.Category, Model.CategoryFilterItems, "All", new { @class = "form-control", @id = "filter" })
         <label for="sort">Sort By:</label>
