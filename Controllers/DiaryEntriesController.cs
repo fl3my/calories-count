@@ -21,6 +21,7 @@ namespace CaloriesCount.Controllers
         // GET: DiaryEntries
         public ActionResult Index(string startDate)
         {
+            // Create an instance of the viewModel
             DiaryIndexViewModel viewModel = new DiaryIndexViewModel();
 
             // Get user id
@@ -40,9 +41,10 @@ namespace CaloriesCount.Controllers
                 filterDate = DateTime.ParseExact(startDate, "yyyy-MM-dd", null);
             }
 
+            // Add one day to the end of the date to create a range
             DateTime filterDateEnd = filterDate.AddDays(1);
 
-            // Return the diary entries created by the user
+            // Return the diary entries created by the user and filtered by a date
             var diaryEntries = db.DiaryEntries
                 .Include(d => d.Food)
                 .Include(d => d.User)
@@ -50,6 +52,7 @@ namespace CaloriesCount.Controllers
                 .Where(d => d.DateAdded > filterDate && d.DateAdded < filterDateEnd)
                 .OrderByDescending(d => d.DateAdded);
 
+            // Pass the list into the viewModel
             viewModel.DiaryEntries = diaryEntries.ToList();
 
             // Convert to format for dat input and pass in viewbag
