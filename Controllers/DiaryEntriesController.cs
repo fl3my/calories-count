@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CaloriesCount.DAL;
 using CaloriesCount.Models;
+using CaloriesCount.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace CaloriesCount.Controllers
@@ -20,6 +21,8 @@ namespace CaloriesCount.Controllers
         // GET: DiaryEntries
         public ActionResult Index(string startDate)
         {
+            DiaryIndexViewModel viewModel = new DiaryIndexViewModel();
+
             // Get user id
             string userId = User.Identity.GetUserId();
 
@@ -47,16 +50,18 @@ namespace CaloriesCount.Controllers
                 .Where(d => d.DateAdded > filterDate && d.DateAdded < filterDateEnd)
                 .OrderByDescending(d => d.DateAdded);
 
+            viewModel.DiaryEntries = diaryEntries.ToList();
+
             // Convert to format for dat input and pass in viewbag
-            ViewBag.CurrentDate = filterDate.ToString("yyyy-MM-dd");
+            viewModel.CurrentDate = filterDate.ToString("yyyy-MM-dd");
 
             // if there is any entries show a total
             if (diaryEntries.Count() > 0)
             {
-                ViewBag.Total = diaryEntries.Sum(t => t.TotalCalories);
+                viewModel.Total = diaryEntries.Sum(t => t.TotalCalories);
             }
 
-            return View(diaryEntries.ToList());
+            return View(viewModel);
         }
 
         // GET: DiaryEntries/Details/5
