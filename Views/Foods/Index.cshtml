@@ -13,14 +13,16 @@
         @Html.ActionLink("Create New", "Create")
     }
 
-    @using (Html.BeginRouteForm("FoodsIndex", "FormMethod.Get"))
+    @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "form-inline" }))
     {
-        <label>Filter by category:</label>
-        @Html.DropDownListFor(vm => vm.Category, Model.CategoryFilterItems, "All", new { @class = "form-control" });
-        <label>Sort By:</label>
-        @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default", new { @class = "form-control" });
-        <input type="submit" value="Filter" class="btn btn-primary"/>
-        <input type="hidden" name="Search" id="Search" value="@Model.Search"/>
+    <div class="form-group">
+        <label for="filter">Filter by category:</label>
+        @Html.DropDownListFor(vm => vm.Category, Model.CategoryFilterItems, "All", new { @class = "form-control", @id = "filter" })
+        <label for="sort">Sort By:</label>
+        @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default", new { @class = "form-control", @id = "sort"})
+        <input type="submit" value="Filter" class="btn btn-primary" />
+        <input type="hidden" name="Search" id="Search" value="@Model.Search" />
+    </div>
     }
 </p>
 <div class="row">

@@ -4,16 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Your Calorie Diary</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "DiaryEntries", FormMethod.Post, new { @class = "form-inline" }))
 {
-    <div class="form-horizontal">
-        <input type="date" name="startDate" value="@Model.CurrentDate" />
+    <div class="form-group">
+        <label for="date">Show diary entries on:</label>
+        <input type="date" id="date" name="startDate" value="@Model.CurrentDate" class="form-control"/>
         <input type="submit" value="View" class="btn btn-default" />
     </div>
 }
