@@ -20,6 +20,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Calories Count", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                @Html.Action("Calories")
             </div>
 
             <div class="navbar-collapse collapse">
@@ -39,7 +41,9 @@
         </div>
     </div>
 
+
     <div class="container main-content">
+
         <div class="row">
             <div class="col-xs-12 col-sm-3">
                 <div class="list-group">
@@ -83,8 +87,8 @@
             </div>
         </div>
     </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

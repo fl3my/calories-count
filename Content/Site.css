@@ -26,3 +26,21 @@ textarea {
 .main-content {
     margin-top: 30px;
 }
+
+.progress {
+    position: relative;
+    height: 42px;
+}
+
+    .progress span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        color: black;
+        font-size: 32px;
+        padding-top: 16px;
+    }
+
+.calories-total {
+    
+}
