@@ -11,7 +11,7 @@ using CaloriesCount.Models;
 
 namespace CaloriesCount.Controllers
 {
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();
 

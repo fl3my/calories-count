@@ -24,6 +24,8 @@
 
             <div class="navbar-collapse collapse">
 
+                @Html.Partial("_LoginPartial")
+
                 @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "navbar-form navbar-right" }))
                 {
                     <div class="input-group">
@@ -33,16 +35,11 @@
                         </div>
                     </div>
                 }
-
-
-                @Html.Partial("_LoginPartial")
-
             </div>
         </div>
     </div>
 
     <div class="container main-content">
-
         <div class="row">
             <div class="col-xs-12 col-sm-3">
                 <div class="list-group">

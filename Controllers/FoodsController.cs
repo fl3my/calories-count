@@ -14,7 +14,7 @@ using PagedList;
 
 namespace CaloriesCount.Controllers
 {
-    public class FoodsController : Controller
+    public class FoodsController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();
 

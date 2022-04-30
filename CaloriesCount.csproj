@@ -193,6 +193,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\DiaryEntriesController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
@@ -338,10 +339,12 @@
     <Content Include="Views\DiaryEntries\Index.cshtml" />
     <Content Include="Views\Home\Podcasts.cshtml" />
     <Content Include="Views\Home\Learn.cshtml" />
+    <Content Include="Views\Shared\_CaloriesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\FoodImages\Thumbnails\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

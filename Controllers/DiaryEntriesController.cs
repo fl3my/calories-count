@@ -14,7 +14,7 @@ using Microsoft.AspNet.Identity;
 namespace CaloriesCount.Controllers
 {
     [Authorize]
-    public class DiaryEntriesController : Controller
+    public class DiaryEntriesController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();
 
