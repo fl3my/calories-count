@@ -336,6 +336,8 @@
     <Content Include="Views\DiaryEntries\Details.cshtml" />
     <Content Include="Views\DiaryEntries\Edit.cshtml" />
     <Content Include="Views\DiaryEntries\Index.cshtml" />
+    <Content Include="Views\Home\Podcasts.cshtml" />
+    <Content Include="Views\Home\Learn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
