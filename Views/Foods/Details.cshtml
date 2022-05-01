@@ -5,62 +5,84 @@
 }
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
+<h4>@Html.DisplayFor(model => model.Category.Name)</h4>
 
 <div>
-    <h4>@Html.DisplayFor(model => model.Category.Name)</h4>
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <h4>Admin Tools: @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) | @Html.ActionLink("Delete", "Delete", new { id = Model.Id })</h4>
+    }
     <hr />
-
-    <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" class="img-responsive" />
-
+    <div style="margin-bottom:20px">
+        <a href="@Url.Action("Index", "Foods")" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span>  Go back</a>
+        <a href="@Url.Action("Create", "DiaryEntries",new { foodId = Model.Id })" class="btn btn-success">Add to todays diary</a> 
+    </div>
     <div class="row">
 
         <div class="col-xs-12 col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Nutritional Values</h3>
+                    <h3 class="panel-title">Food Image</h3>
                 </div>
                 <div class="panel-body">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Calories)
-                        </dt>
+                    <img src="@(Url.Content(Constants.FoodImagePath) + Model.ImageFileName)" class="img-responsive img-rounded" />
+                </div>
+            </div>
+        </div>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Calories)
-                        </dd>
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Nutritional Values per 100g</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped" style="margin-bottom:0px">
+                        <tr>
+                            <th>
+                                Calories
+                            </th>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Fat)
-                        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.Calories)<span> kCal</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Fat
+                            </th>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Fat)
-                        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.Fat)<span> g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Protein
+                            </th>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Protein)
-                        </dt>
+                            <td>
+                                @Html.DisplayFor(model => model.Protein)<span> g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Carbohydrates
+                            </th>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Protein)
-                        </dd>
+                            <td>
+                                @Html.DisplayFor(model => model.Carbohydrates)<span> g</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Fibre
+                            </th>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Carbohydrates)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Carbohydrates)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Fibre)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Fibre)
-                        </dd>
-                    </dl>
+                            <td>
+                                @Html.DisplayFor(model => model.Fibre)<span> g</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -80,8 +102,7 @@
 
 <p>
     @Html.ActionLink("Add to Diary", "Create", "DiaryEntries", new { foodId = Model.Id }, null)
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+
 </p>
 
 @section Scripts

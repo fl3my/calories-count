@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm("Index", "DiaryEntries", FormMethod.Post, new { @class = "form-inline" }))
 {
-    <div class="input-group">
+    <div class="input-group" id="filter-form">
         <span class="input-group-addon">Show diary entries on:</span>
         <input type="date" id="date" name="startDate" value="@Model.CurrentDate" class="form-control" style="max-width:100%" />
         <span class="input-group-btn">
@@ -23,7 +23,7 @@
 }
 else
 {
-    <table class="table table-striped" style="margin-top:20px;">
+    <table class="table table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.DiaryEntries.First().Food.Name)

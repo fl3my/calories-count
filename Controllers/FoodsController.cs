@@ -214,7 +214,12 @@ namespace CaloriesCount.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(food).State = EntityState.Modified;
+
+                // Prevents the filename from being updated
+                db.Entry(food).Property(x => x.ImageFileName).IsModified = false;
+
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", food.CategoryId);
@@ -285,17 +290,17 @@ namespace CaloriesCount.Controllers
             WebImage image = new WebImage(file.InputStream);
 
             // If image is more than 190 pixels wide resize
-            if (image.Width > 190)
+            if (image.Width > 400)
             {
-                image.Resize(190, image.Height);
+                image.Resize(400, image.Height);
             }
 
             // Save the image to the directory
             image.Save(Constants.FoodImagePath + uniqueFileName);
 
-            if (image.Width > 100)
+            if (image.Width > 250)
             {
-                image.Resize(100, image.Height);
+                image.Resize(250, image.Height);
             }
 
             image.Save(Constants.FoodThumbnailPath + uniqueFileName);

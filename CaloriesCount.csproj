@@ -275,6 +275,16 @@
     <Content Include="Content\FoodImages\cooking_salmon.jpg" />
     <Content Include="Content\FoodImages\cottage_cheese.jpg" />
     <Content Include="Content\FoodImages\new_potatoes.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\apple_on_white.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\banana_bunch.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\basmati_rice.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\block_chocolate.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\broccoli.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\carving_roast_chicken.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\cheese_grated.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\cooking_salmon.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\cottage_cheese.jpg" />
+    <Content Include="Content\FoodImages\Thumbnails\new_potatoes.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -348,7 +358,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\FoodImages\Thumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

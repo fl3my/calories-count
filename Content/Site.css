@@ -41,6 +41,11 @@ textarea {
         padding-top: 16px;
     }
 
-h2 {
+h2,h3 {
     margin-top:3px;
+}
+
+#filter-form {
+    margin-top:15px;
+    margin-bottom:15px;
 }

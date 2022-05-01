@@ -10,12 +10,12 @@
 <p>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
-        @Html.ActionLink("Create New", "Create")
-    }
+        <h4>Admin Tools: @Html.ActionLink("Add a new Food", "Create") </h4>
+    } 
 
-    @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "form-inline" }))
+    @using (Html.BeginRouteForm("FoodsIndex", FormMethod.Get, new { @class = "form-inline"}))
     {
-    <div class="form-group">
+    <div class="form-group" id="filter-form">
         <label for="filter">Filter by category:</label>
         @Html.DropDownListFor(vm => vm.Category, Model.CategoryFilterItems, "All", new { @class = "form-control", @id = "filter" })
         <label for="sort">Sort By:</label>
@@ -28,13 +28,13 @@
 <div class="row">
     @foreach (var item in Model.Foods)
     {
-        <div class="col-xs-6 col-sm-4 col-md-3">
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
 
             <div class="panel panel-default text-center">
 
                 <div class="panel-heading">
                     <h3 class="panel-title">@Html.DisplayFor(modelItem => item.Name)</h3>
-                    <h6>@Html.DisplayFor(modelItem => item.Category.Name)</h6>
+                    <h6 style="margin-bottom:0px;">@Html.DisplayFor(modelItem => item.Category.Name)</h6>
                 </div>
 
                 <div class="panel-body">
