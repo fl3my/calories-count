@@ -1,7 +1,7 @@
 ﻿@model CaloriesCount.ViewModels.DiaryIndexViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Diary";
 }
 
 <h2>Your Calorie Diary</h2>
@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Index", "DiaryEntries", FormMethod.Post, new { @class = "form-inline" }))
 {
     <div class="input-group" id="filter-form">
-        <span class="input-group-addon">Show diary entries on:</span>
+        <span class="input-group-addon">Show entries on:</span>
         <input type="date" id="date" name="startDate" value="@Model.CurrentDate" class="form-control" style="max-width:100%" />
         <span class="input-group-btn">
             <input type="submit" value="View" class="btn btn-default" />

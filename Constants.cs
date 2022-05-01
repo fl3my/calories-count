@@ -10,6 +10,7 @@ namespace CaloriesCount
 
         public const string FoodImagePath = "~/Content/FoodImages/";
         public const string FoodThumbnailPath = "~/Content/FoodImages/Thumbnails/";
+        public const string PodcastPath = "~/Content/Podcasts/";
         public const int PageItems = 8;
     }
 }
