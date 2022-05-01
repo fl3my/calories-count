@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using CaloriesCount.ViewModels;
 
 namespace CaloriesCount.Controllers
 {
@@ -20,6 +21,8 @@ namespace CaloriesCount.Controllers
             // if the user is logged in
             if (User.Identity.IsAuthenticated)
             {
+                BaseCaloriesViewModel viewModel = new BaseCaloriesViewModel();
+
                 // Get user id
                 string userId = User.Identity.GetUserId();
 
@@ -37,17 +40,22 @@ namespace CaloriesCount.Controllers
                     .Where(d => d.UserId == userId)
                     .Where(d => d.DateAdded > filterDate && d.DateAdded < filterDateEnd);
 
-                var total = 0;
+                var total = 0.00M;
 
                 // if there is any entries show a total
                 if (diaryEntries.Count() > 0)
                 {
-                    total = Convert.ToInt32(diaryEntries.Sum(t => t.TotalCalories));
+                    total = diaryEntries.Sum(t => t.TotalCalories);
                 }
 
-                ViewBag.TotalCalories = total;
+                var userCaloriesGoal = 2000;
+                
+                // Bind the calorie data to the viewModel
+                viewModel.UserCaloriesTotal = Convert.ToInt32(total);
+                viewModel.UserCaloriesGoal = userCaloriesGoal;
+                viewModel.UserCaloriesPercent = Convert.ToInt32((total / userCaloriesGoal) * 100);
 
-                return PartialView("_CaloriesPartial");
+                return PartialView("_CaloriesPartial", viewModel);
             }
             return null;
         }

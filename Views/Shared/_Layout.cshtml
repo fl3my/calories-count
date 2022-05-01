@@ -21,7 +21,6 @@
                 </button>
                 @Html.ActionLink("Calories Count", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-                @Html.Action("Calories")
             </div>
 
             <div class="navbar-collapse collapse">
@@ -43,6 +42,8 @@
 
 
     <div class="container main-content">
+
+        @Html.Action("Calories")
 
         <div class="row">
             <div class="col-xs-12 col-sm-3">

@@ -249,6 +249,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BaseCaloriesViewModel.cs" />
     <Compile Include="ViewModels\DiaryIndexViewModel.cs" />
     <Compile Include="ViewModels\FoodIndexViewModel.cs" />
     <Compile Include="ViewModels\FoodViewModel.cs" />
