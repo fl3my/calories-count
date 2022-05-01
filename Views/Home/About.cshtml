@@ -1,7 +1,15 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "How to use";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
-<p>Use this area to provide additional information.</p>
+<ul>
+    <li>To track your calorie intake you must first create an @Html.ActionLink("account", "Login", "Account")!</li>
+    <li>To Browse the list of available foods, select "Foods" on the side bar.</li>
+    <li>To Browse all the available catagories, select "Categories" on the side bar.</li>
+    <li>To add a food to your diary click on the add button and enter your chosen quantity.</li>
+    <li>To view your diary, select the "your diary" option on the side bar.</li>
+    <li>The bar chart at the top of the page represents how many calories you have ate today.</li>
+    <li>If the bar chart turns red, you have exceeded your daily reccomended calorie intake.</li>
+    <li>To listen to podcasts, select "Podcasts" on the side bar.</li>
+</ul>
