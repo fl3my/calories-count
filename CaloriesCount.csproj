@@ -285,6 +285,7 @@
     <Content Include="Content\FoodImages\Thumbnails\cooking_salmon.jpg" />
     <Content Include="Content\FoodImages\Thumbnails\cottage_cheese.jpg" />
     <Content Include="Content\FoodImages\Thumbnails\new_potatoes.jpg" />
+    <Content Include="Content\Images\logo.svg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
