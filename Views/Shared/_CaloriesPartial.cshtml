@@ -1,7 +1,7 @@
 ﻿@model CaloriesCount.ViewModels.BaseCaloriesViewModel
 
 <div class="progress">
-    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=@Model.UserCaloriesPercent
+    <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="@Model.UserCaloriesPercent"
          aria-valuemin="0" aria-valuemax="100" style="width:@Model.UserCaloriesPercent%">
         <span>@Model.UserCaloriesTotal / @Model.UserCaloriesGoal kCal</span>
     </div>

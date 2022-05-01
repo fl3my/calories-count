@@ -155,7 +155,8 @@ namespace CaloriesCount.Controllers
                     UserName = model.Email, 
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    DailyCalories = model.DailyCalories
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);

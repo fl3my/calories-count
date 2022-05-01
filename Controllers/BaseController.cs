@@ -52,9 +52,9 @@ namespace CaloriesCount.Controllers
                 
                 // Bind the calorie data to the viewModel
                 viewModel.UserCaloriesTotal = Convert.ToInt32(total);
-                viewModel.UserCaloriesGoal = userCaloriesGoal;
+                viewModel.UserCaloriesGoal = db.Users.Find(userId).DailyCalories;
                 viewModel.UserCaloriesPercent = Convert.ToInt32((total / userCaloriesGoal) * 100);
-
+           
                 return PartialView("_CaloriesPartial", viewModel);
             }
             return null;

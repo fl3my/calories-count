@@ -20,6 +20,11 @@ namespace CaloriesCount.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Required]
+        [Display(Name = "Daily Reccomended Calories")]
+        [Range(500, 5000, ErrorMessage = "The Reccomended Calories should be between 500 and 5000")]
+        public int DailyCalories { get; set; }
+
         // Navigational 
         public virtual ICollection<DiaryEntry> DiaryEntries { get; set; }
 

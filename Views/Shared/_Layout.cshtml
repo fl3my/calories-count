@@ -91,5 +91,24 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!-- Script to change the colour of the bar when it exceeds 100% -->
+    <script>
+        $(document).ready(function () {
+
+            // Get the width of the progress bar
+            var bar = parseInt($("#progress").attr('aria-valuenow'));
+
+            // if the bar is greater than 100 change to red
+            if (bar > 100) {
+                $("#progress").addClass("progress-bar-danger");
+            }
+            else {
+                $("#progress").addClass("progress-bar-info");
+            }
+
+        });
+    </script>
+
 </body>
 </html>

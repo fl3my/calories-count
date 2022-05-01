@@ -190,7 +190,8 @@ namespace CaloriesCount.Migrations
                         Email = "admin@admin.com",
                         FirstName = "Ross",
                         LastName = "Fleming",
-                        EmailConfirmed = true
+                        EmailConfirmed = true,
+                        DailyCalories = 2000
 
                     };
 
@@ -208,7 +209,8 @@ namespace CaloriesCount.Migrations
                     Email = "member@member.com",
                     FirstName = "Member",
                     LastName = "Memberton",
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    DailyCalories = 2500
                 };
 
                 if (userManager.FindByName("member@member.com") == null)
