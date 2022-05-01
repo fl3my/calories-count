@@ -4,9 +4,9 @@
 @{
     ViewBag.Title = "Index";
 }
-<h3>
+<h2>
     @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found") @Model.Foods.TotalItemCount foods
-</h3>
+</h2>
 <p>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {

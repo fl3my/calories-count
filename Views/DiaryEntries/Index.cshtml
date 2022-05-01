@@ -6,16 +6,14 @@
 
 <h2>Your Calorie Diary</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
 @using (Html.BeginForm("Index", "DiaryEntries", FormMethod.Post, new { @class = "form-inline" }))
 {
-    <div class="form-group">
-        <label for="date">Show diary entries on:</label>
-        <input type="date" id="date" name="startDate" value="@Model.CurrentDate" class="form-control"/>
-        <input type="submit" value="View" class="btn btn-default" />
+    <div class="input-group">
+        <span class="input-group-addon">Show diary entries on:</span>
+        <input type="date" id="date" name="startDate" value="@Model.CurrentDate" class="form-control" style="max-width:100%" />
+        <span class="input-group-btn">
+            <input type="submit" value="View" class="btn btn-default" />
+        </span>
     </div>
 }
 
@@ -25,11 +23,8 @@
 }
 else
 {
-    <table class="table">
+    <table class="table table-striped" style="margin-top:20px;">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DiaryEntries.First().DateAdded)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.DiaryEntries.First().Food.Name)
             </th>
@@ -45,9 +40,6 @@ else
         @foreach (var item in Model.DiaryEntries)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAdded)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Food.Name)
                 </td>
@@ -67,5 +59,5 @@ else
 
     </table>
 
-    @Model.Total
+    <h4>You have consumed <strong>@Model.Total</strong> Calories in total</h4>
 }
