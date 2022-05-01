@@ -1,4 +1,8 @@
 ﻿@using Microsoft.AspNet.Identity
+@using CaloriesCount.DAL
+@using CaloriesCount.Models
+@using Microsoft.AspNet.Identity.EntityFramework
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,8 +11,12 @@
 
         <ul class="nav navbar-nav">
             <li class="dropdown">
+                @{
+                    var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new CaloriesCountContext()));
+                    var currentUser = manager.FindById(User.Identity.GetUserId());
+                }
                 <a href="#" class="dropdow-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-user" style="margin-right:10px;"></i>@User.Identity.GetUserName() <span class="caret"></span>
+                    <i class="fa-solid fa-user" style="margin-right:10px;"></i>Hello @currentUser.FirstName!<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
