@@ -244,6 +244,10 @@
     <Compile Include="Migrations\202205010933516_AddDailyCalories.Designer.cs">
       <DependentUpon>202205010933516_AddDailyCalories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205021648565_AddMessages.cs" />
+    <Compile Include="Migrations\202205021648565_AddMessages.Designer.cs">
+      <DependentUpon>202205021648565_AddMessages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -251,6 +255,7 @@
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Podcast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -419,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205010933516_AddDailyCalories.resx">
       <DependentUpon>202205010933516_AddDailyCalories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205021648565_AddMessages.resx">
+      <DependentUpon>202205021648565_AddMessages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using CaloriesCount.Models;
+﻿using CaloriesCount.DAL;
+using CaloriesCount.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,7 @@ namespace CaloriesCount.Controllers
 {
     public class HomeController : BaseController
     {
+        private CaloriesCountContext db = new CaloriesCountContext();
         public ActionResult SplashScreen()
         {
             return View();
@@ -28,6 +30,24 @@ namespace CaloriesCount.Controllers
         public ActionResult Contact()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(Message message)
+        {
+            if (ModelState.IsValid)
+            {
+                // Get the current date
+                message.MessageDate = DateTime.Now.Date;
+
+                // add to database
+                db.Messages.Add(message);
+                db.SaveChanges();
+
+                return RedirectToAction("About");
+
+            }
+            return View(message);
         }
 
         public ActionResult Learn()
