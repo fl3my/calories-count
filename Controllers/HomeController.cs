@@ -10,6 +10,11 @@ namespace CaloriesCount.Controllers
 {
     public class HomeController : BaseController
     {
+        public ActionResult SplashScreen()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();

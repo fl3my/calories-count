@@ -286,6 +286,7 @@
     <Content Include="Content\FoodImages\Thumbnails\cooking_salmon.jpg" />
     <Content Include="Content\FoodImages\Thumbnails\cottage_cheese.jpg" />
     <Content Include="Content\FoodImages\Thumbnails\new_potatoes.jpg" />
+    <Content Include="Content\Images\apple-waving.gif" />
     <Content Include="Content\Images\logo.svg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Podcasts\5_2_Diet_Podcast_Ep_10_Simones_guide_to_losing_weight_with_a_disability.mp3" />
@@ -370,6 +371,7 @@
     <Content Include="Views\Home\Podcasts.cshtml" />
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\Shared\_CaloriesPartial.cshtml" />
+    <Content Include="Views\Home\SplashScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
