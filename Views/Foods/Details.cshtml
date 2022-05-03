@@ -38,51 +38,43 @@
                 <div class="panel-body">
                     <table class="table table-striped" style="margin-bottom:0px">
                         <tr>
-                            <th>
-                                Calories
-                            </th>
-
-                            <td>
-                                @Html.DisplayFor(model => model.Calories)<span> kCal</span>
-                            </td>
+                            <th> Calories</th>
+                            <td>@Html.DisplayFor(model => model.Calories)<span> kCal</span></td>
                         </tr>
                         <tr>
-                            <th>
-                                Fat
-                            </th>
-
-                            <td>
-                                @Html.DisplayFor(model => model.Fat)<span> g</span>
-                            </td>
+                            <th>Fat</th>
+                            <td>@Html.DisplayFor(model => model.Fat)<span> g</span></td>
                         </tr>
                         <tr>
-                            <th>
-                                Protein
-                            </th>
-
-                            <td>
-                                @Html.DisplayFor(model => model.Protein)<span> g</span>
-                            </td>
+                            <th>Protein</th>
+                            <td>@Html.DisplayFor(model => model.Protein)<span> g</span></td>
                         </tr>
                         <tr>
-                            <th>
-                                Carbohydrates
-                            </th>
-
-                            <td>
-                                @Html.DisplayFor(model => model.Carbohydrates)<span> g</span>
-                            </td>
+                            <th>Carbohydrates</th>
+                            <td>@Html.DisplayFor(model => model.Carbohydrates)<span> g</span></td>
                         </tr>
                         <tr>
-                            <th>
-                                Fibre
-                            </th>
-
-                            <td>
-                                @Html.DisplayFor(model => model.Fibre)<span> g</span>
-                            </td>
+                            <th>Fibre</th>
+                            <td>@Html.DisplayFor(model => model.Fibre)<span> g</span></td>
                         </tr>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix visible-md-block visible-lg-block"></div>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Preview Calories</h3>
+                </div>
+                <div class="slidecontainer text-center">
+                    <label style="margin:10px;" for="0" class="pull-left">1 kCal</label>
+                    <label style="margin:10px;" for="" class="pull-right">500 kCal</label>
+                    <input type="range" min="1" max="500" value="1" step="10" class="slider" id="myRange">
+                    <h3 id="slider_value">Scroll slider to preview</h3>
                 </div>
             </div>
         </div>
@@ -97,13 +89,10 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
-
-<p>
-    @Html.ActionLink("Add to Diary", "Create", "DiaryEntries", new { foodId = Model.Id }, null)
-
-</p>
 
 @section Scripts
 {
@@ -153,6 +142,22 @@
         };
 
         var macroChart = new Chart(ctx, config );
+
+        // Preview Calories
+        $(document).on('input', '#myRange', function () {
+
+            var calories = @Model.Calories;
+            calories = calories / 100;
+
+            var sliderVal = $(this).val();
+            var totalCalories = calories * sliderVal;
+
+            totalCalories = Math.round(totalCalories);
+
+            var outString = `${sliderVal} is ${totalCalories} kCals`
+            $('#slider_value').html(outString);
+        })
+
 
     </script>
 }

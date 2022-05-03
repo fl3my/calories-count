@@ -248,6 +248,10 @@
     <Compile Include="Migrations\202205021648565_AddMessages.Designer.cs">
       <DependentUpon>202205021648565_AddMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205030841417_AddSubscribeBool.cs" />
+    <Compile Include="Migrations\202205030841417_AddSubscribeBool.Designer.cs">
+      <DependentUpon>202205030841417_AddSubscribeBool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -427,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205021648565_AddMessages.resx">
       <DependentUpon>202205021648565_AddMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205030841417_AddSubscribeBool.resx">
+      <DependentUpon>202205030841417_AddSubscribeBool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

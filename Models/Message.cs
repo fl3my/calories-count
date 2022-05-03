@@ -26,5 +26,8 @@ namespace CaloriesCount.Models
 
         [DataType(DataType.Date)]
         public DateTime MessageDate { get; set; }
+
+        [Display(Name = "Subscribe")]
+        public bool Subscribed { get; set; }
     }
 }
