@@ -23,7 +23,6 @@ namespace CaloriesCount.Migrations
             {
                 new Category {Name = "Dairy"},
                 new Category {Name = "Vegetables"},
-                new Category {Name = "Bread"},
                 new Category {Name = "Fruits"},
                 new Category {Name = "Seafood"},
                 new Category {Name = "Meat"},
@@ -150,6 +149,248 @@ namespace CaloriesCount.Migrations
                     Fibre = 7.5,
                     ImageFileName = "block_chocolate.jpg",
                     CategoryId = categories.Single(c => c.Name == "Snacks").Id
+                },
+                new Food
+                {
+                    Name = "Bread Roll",
+                    Calories = 298,
+                    Fat = 4.4,
+                    Protein = 9.1,
+                    Carbohydrates = 49,
+                    Fibre = 1.8,
+                    ImageFileName = "bread_roll.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Grains").Id
+                },
+                new Food
+                {
+                    Name = "Cooked Tagliatelle",
+                    Calories = 378,
+                    Fat = 4,
+                    Protein = 14,
+                    Carbohydrates = 70,
+                    Fibre = 1.6,
+                    ImageFileName = "cooked_tagliatelle.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Grains").Id
+                },
+                new Food
+                {
+                    Name = "Cracker",
+                    Calories = 321,
+                    Fat = 11,
+                    Protein = 5.3,
+                    Carbohydrates = 50,
+                    Fibre = 2.6,
+                    ImageFileName = "cracker.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Grains").Id
+                },
+                new Food
+                {
+                    Name = "White Bread",
+                    Calories = 282,
+                    Fat = 3.3,
+                    Protein = 8.7,
+                    Carbohydrates = 50,
+                    Fibre = 2.2,
+                    ImageFileName = "batard.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Grains").Id
+                },
+                new Food
+                {
+                    Name = "Egg",
+                    Calories = 140,
+                    Fat = 10,
+                    Protein = 12,
+                    Carbohydrates = 0,
+                    Fibre = 0,
+                    ImageFileName = "farm_fresh_eggs.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Dairy").Id
+                },
+                new Food
+                {
+                    Name = "Beer",
+                    Calories = 43,
+                    Fat = 0,
+                    Protein = 0.46,
+                    Carbohydrates = 3,
+                    Fibre = 0,
+                    ImageFileName = "beer_glass.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Drinks").Id
+                },
+                new Food
+                {
+                    Name = "Wine",
+                    Calories = 155,
+                    Fat = 0,
+                    Protein = 0,
+                    Carbohydrates = 3.2,
+                    Fibre = 0,
+                    ImageFileName = "champagne_bottle_glasses.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Drinks").Id
+                },
+                new Food
+                {
+                    Name = "Latte",
+                    Calories = 325,
+                    Fat = 8.7,
+                    Protein = 10,
+                    Carbohydrates = 55,
+                    Fibre = 0,
+                    ImageFileName = "coffee_to_go.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Drinks").Id
+                },
+                new Food
+                {
+                    Name = "Avocado",
+                    Calories = 159,
+                    Fat = 15,
+                    Protein = 1.9,
+                    Carbohydrates = 8.6,
+                    Fibre = 6.8,
+                    ImageFileName = "avocado_flesh.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Fruits").Id
+                },
+                new Food
+                {
+                    Name = "Grape",
+                    Calories = 200,
+                    Fat = 0,
+                    Protein = 2.5,
+                    Carbohydrates = 55,
+                    Fibre = 2.5,
+                    ImageFileName = "black_grapes.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Fruits").Id
+                },
+                new Food
+                {
+                    Name = "Raspberries",
+                    Calories = 57,
+                    Fat = 0.3,
+                    Protein = 1,
+                    Carbohydrates = 13,
+                    Fibre = 2.9,
+                    ImageFileName = "harvested_raspberries.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Fruits").Id
+                },
+                new Food
+                {
+                    Name = "Strawberries",
+                    Calories = 36,
+                    Fat = 0,
+                    Protein = 0.71,
+                    Carbohydrates = 9.3,
+                    Fibre = 2.1,
+                    ImageFileName = "ripened_red_strawberries.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Fruits").Id
+                },
+                new Food
+                {
+                    Name = "Bacon",
+                    Calories = 533,
+                    Fat = 40,
+                    Protein = 33,
+                    Carbohydrates = 0,
+                    Fibre = 0,
+                    ImageFileName = "bacon_and_mushrooms.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Meat").Id
+                },
+                new Food
+                {
+                    Name = "Beef Mince",
+                    Calories = 183,
+                    Fat = 11,
+                    Protein = 20,
+                    Carbohydrates = 0,
+                    Fibre = 0,
+                    ImageFileName = "beef_mince.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Meat").Id
+                },
+                new Food
+                {
+                    Name = "Sausage",
+                    Calories = 322,
+                    Fat = 27,
+                    Protein = 18,
+                    Carbohydrates = 1.8,
+                    Fibre = 0,
+                    ImageFileName = "sausage.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Meat").Id
+                },
+                new Food
+                {
+                    Name = "Swordfish",
+                    Calories = 142,
+                    Fat = 6.2,
+                    Protein = 19,
+                    Carbohydrates = 0,
+                    Fibre = 0,
+                    ImageFileName = "fresh_swordfish.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Seafood").Id
+                },
+                new Food
+                {
+                    Name = "Pizza",
+                    Calories = 237,
+                    Fat = 9.4,
+                    Protein = 9.4,
+                    Carbohydrates = 26,
+                    Fibre = 1.4,
+                    ImageFileName = "whole_pizza.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Snacks").Id
+                },
+                new Food
+                {
+                    Name = "Crisps",
+                    Calories = 536,
+                    Fat = 32,
+                    Protein = 7.1,
+                    Carbohydrates = 57,
+                    Fibre = 3.6,
+                    ImageFileName = "potato_chips_on_white.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Snacks").Id
+                },
+                new Food
+                {
+                    Name = "basic sponge cream cake",
+                    Calories = 387,
+                    Fat = 16,
+                    Protein = 3.8,
+                    Carbohydrates = 51,
+                    Fibre = 1.6,
+                    ImageFileName = "basic_sponge_cream_cake.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Snacks").Id
+                },
+                new Food
+                {
+                    Name = "Sweet corn",
+                    Calories = 100,
+                    Fat = 1.1,
+                    Protein = 2.2,
+                    Carbohydrates = 20,
+                    Fibre = 2.2,
+                    ImageFileName = "buttery_sweet_corn.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Vegetables").Id
+                },
+                new Food
+                {
+                    Name = "Carrot",
+                    Calories = 25,
+                    Fat = 0,
+                    Protein = 0.83,
+                    Carbohydrates = 5,
+                    Fibre = 1.7,
+                    ImageFileName = "carrot_slices.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Vegetables").Id
+                },
+                new Food
+                {
+                    Name = "Cucumber",
+                    Calories = 13,
+                    Fat = 0,
+                    Protein = 0.7,
+                    Carbohydrates = 2.8,
+                    Fibre = 0.7,
+                    ImageFileName = "cucumber.jpg",
+                    CategoryId = categories.Single(c => c.Name == "Vegetables").Id
                 }
             };
 

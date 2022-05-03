@@ -71,8 +71,8 @@
                     <h3 class="panel-title">Preview Calories</h3>
                 </div>
                 <div class="slidecontainer text-center">
-                    <label style="margin:10px;" for="0" class="pull-left">1 kCal</label>
-                    <label style="margin:10px;" for="" class="pull-right">500 kCal</label>
+                    <label style="margin:10px;" for="0" class="pull-left">1 gram</label>
+                    <label style="margin:10px;" for="" class="pull-right">500 gram</label>
                     <input type="range" min="1" max="500" value="1" step="10" class="slider" id="myRange">
                     <h3 id="slider_value">Scroll slider to preview</h3>
                 </div>
@@ -154,7 +154,7 @@
 
             totalCalories = Math.round(totalCalories);
 
-            var outString = `${sliderVal} is ${totalCalories} kCals`
+            var outString = `${sliderVal} g is ${totalCalories} kCals`
             $('#slider_value').html(outString);
         })
 
