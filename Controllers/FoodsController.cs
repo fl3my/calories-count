@@ -189,6 +189,7 @@ namespace CaloriesCount.Controllers
         }
 
         // GET: Foods/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -209,6 +210,7 @@ namespace CaloriesCount.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Name,Calories,Fat,Protein,Carbohydrates,Fibre,CategoryId")] Food food)
         {
             if (ModelState.IsValid)
@@ -227,6 +229,7 @@ namespace CaloriesCount.Controllers
         }
 
         // GET: Foods/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -242,6 +245,7 @@ namespace CaloriesCount.Controllers
         }
 
         // POST: Foods/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

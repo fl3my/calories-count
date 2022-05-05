@@ -11,11 +11,13 @@ using CaloriesCount.Models;
 
 namespace CaloriesCount.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();
 
         // GET: Categories
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
