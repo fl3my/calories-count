@@ -37,14 +37,18 @@ namespace CaloriesCount.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Get the current date
+                // Get the current date.
                 message.MessageDate = DateTime.Now.Date;
 
-                // add to database
+                // Add to database.
                 db.Messages.Add(message);
                 db.SaveChanges();
 
-                return RedirectToAction("About");
+                // Create temp data,
+                TempData["AlertMessage"] = "Message send successfully!";
+
+                // Redurect to the index action.
+                return RedirectToAction("Contact");
 
             }
             return View(message);
