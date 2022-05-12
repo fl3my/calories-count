@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace CaloriesCount.Controllers
 {
+    /* This controller is responsible for the navigation to the information based views as well as
+     * contact information and displaying the podcasts on its view. */
     public class HomeController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();

@@ -14,6 +14,10 @@ using PagedList;
 
 namespace CaloriesCount.Controllers
 {
+    /* This controller is responsible for displaying all the foods and all of their details. The foods 
+     * can be searched and filtered by different categories. The foods details can then be viewed and 
+     * added to the diary entries. Admins can also create, Edit and delete food entries in the database.
+     * This controller also contains the validation for admins uploading images. */
     public class FoodsController : BaseController
     {
         private CaloriesCountContext db = new CaloriesCountContext();

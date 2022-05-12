@@ -10,6 +10,8 @@ using CaloriesCount.ViewModels;
 
 namespace CaloriesCount.Controllers
 {
+    /* All other controllers inherit from this controller. This allows the users daily calories to be
+     * viewed as a bar chart from all views on the webpage. */
     public class BaseController : Controller
     {
         CaloriesCountContext db = new CaloriesCountContext();
@@ -48,13 +50,15 @@ namespace CaloriesCount.Controllers
                     total = diaryEntries.Sum(t => t.TotalCalories);
                 }
 
-                var userCaloriesGoal = 2000;
+                // Get the users daily calorie limit.
+                var userCaloriesGoal = db.Users.Find(userId).DailyCalories;
                 
                 // Bind the calorie data to the viewModel
                 viewModel.UserCaloriesTotal = Convert.ToInt32(total);
-                viewModel.UserCaloriesGoal = db.Users.Find(userId).DailyCalories;
+                viewModel.UserCaloriesGoal = userCaloriesGoal;
                 viewModel.UserCaloriesPercent = Convert.ToInt32((total / userCaloriesGoal) * 100);
-           
+                
+                // Use a partial view to display the bar chart of daily user calories
                 return PartialView("_CaloriesPartial", viewModel);
             }
             return null;

@@ -11,6 +11,9 @@ using CaloriesCount.Models;
 
 namespace CaloriesCount.Controllers
 {
+    /* The CategoriesController allows admins to Create, Edit and Delete Categories. Basic users 
+     * Are only allowed to view the categories that then take the user to the foods index view
+     * displaying the filtered food items. */
     [Authorize(Roles = "Admin")]
     public class CategoriesController : BaseController
     {

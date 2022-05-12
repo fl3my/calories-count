@@ -13,6 +13,10 @@ using Microsoft.AspNet.Identity;
 
 namespace CaloriesCount.Controllers
 {
+    /* The DiaryEntriesController allows all users to Create, Edit and delete food diary entries
+     * that they make. The index by default shows the user the entries for the current day but
+     * this can be changed to show entries for anyother day. A Delete all action is also provided
+     * which removes all entries from the database from the selected day. */
     [Authorize]
     public class DiaryEntriesController : BaseController
     {
