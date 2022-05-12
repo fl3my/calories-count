@@ -8,6 +8,9 @@ using PagedList;
 
 namespace CaloriesCount.ViewModels
 {
+    /* This viewModel is responsible for passing the paged list of foods to the food index view.
+     * This also holds the current search term, category, sorting method. The count of results is also
+     * held in this viewModel. */
     public class FoodIndexViewModel
     {
         // Used instead of the current model in the view
@@ -40,7 +43,7 @@ namespace CaloriesCount.ViewModels
         }
     }
 
-    // Class used to store category name and number of products
+    // Seperate Class used to store category name and number of products
     public class CategoryWithCount
     {
         public int FoodCount { get; set; }

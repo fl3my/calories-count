@@ -7,6 +7,9 @@ using System.Web.Mvc;
 
 namespace CaloriesCount.ViewModels
 {
+    /* Duplicated from the food model with added category, list of categories and
+     * the file uploaded by the user. This view is used by the food controller for the 
+     * Create action. */
     public class FoodViewModel
     {
         // Properties duplicated from the Food model
