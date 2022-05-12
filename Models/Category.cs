@@ -6,6 +6,7 @@ using System.Web;
 
 namespace CaloriesCount.Models
 {
+    // Category Model used to define categories
     public class Category
     {
         [Key]

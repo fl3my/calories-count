@@ -8,6 +8,8 @@ using System.Web;
 
 namespace CaloriesCount.Models
 {
+    /* Model used to add a quantity of food and type of food to the current user to 
+     * be stored as a diary entry */
     public class DiaryEntry
     {
         [Key]

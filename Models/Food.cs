@@ -2,6 +2,7 @@
 
 namespace CaloriesCount.Models
 {
+    // Food Model represents a single food item
     public class Food
     {
         [Key]

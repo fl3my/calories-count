@@ -6,6 +6,7 @@ using System.Web;
 
 namespace CaloriesCount.Models
 {
+    // Message class stores message from user in the database.
     public class Message
     {
         [Key]
