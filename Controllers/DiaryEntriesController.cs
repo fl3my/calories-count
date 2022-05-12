@@ -185,6 +185,43 @@ namespace CaloriesCount.Controllers
             return View(diaryEntry);
         }
 
+        public ActionResult DeleteAll(string date)
+        {
+            if (date == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            // Get user Id
+            string userId = User.Identity.GetUserId();
+
+            // Parse the users current date into a datetime object
+            DateTime filterDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
+
+            // Add a day to the date to create a range
+            DateTime filterDateEnd = filterDate.AddDays(1);
+
+            // Get the users diary entries between the date range
+            var diaryEntries = db.DiaryEntries
+                .Where(d => d.UserId == userId)
+                .Where(d => d.DateAdded > filterDate && d.DateAdded < filterDateEnd);
+            
+            // if their are no entries redirect
+            if (diaryEntries == null)
+            {
+                return RedirectToAction("Index", new { startDate = date });
+            }
+
+            // Remove the entries from the database
+            db.DiaryEntries.RemoveRange(diaryEntries);
+
+            // Save changes to the database
+            db.SaveChanges();
+
+            // Pass the date back 
+            return RedirectToAction("Index", new { startDate = date });
+        }
+
         // GET: DiaryEntries/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -198,6 +235,7 @@ namespace CaloriesCount.Controllers
 
             // Return a the diary entry only if it was created by the current user
             DiaryEntry diaryEntry = db.DiaryEntries
+                .Include(d => d.Food)
                 .Where(d => d.UserId == userId)
                 .FirstOrDefault(d => d.Id == id);
 
