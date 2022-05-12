@@ -254,6 +254,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AlertMessage.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DiaryEntry.cs" />
     <Compile Include="Models\Food.cs" />

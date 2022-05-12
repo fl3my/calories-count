@@ -207,8 +207,11 @@ namespace CaloriesCount.Controllers
                 .Where(d => d.DateAdded > filterDate && d.DateAdded < filterDateEnd);
             
             // if their are no entries redirect
-            if (diaryEntries == null)
+            if (diaryEntries.Count() == 0)
             {
+                // Create an instance of AlertMessage and populate with error message and class name.
+                // Pass this object to temp data to be used in the view.
+                TempData["UserMessage"] = new AlertMessage() { CssClassName = "alert alert-warning", Title = "Sorry!", Message = "Nothing to delete." };
                 return RedirectToAction("Index", new { startDate = date });
             }
 
@@ -217,6 +220,8 @@ namespace CaloriesCount.Controllers
 
             // Save changes to the database
             db.SaveChanges();
+
+            TempData["UserMessage"] = new AlertMessage() { CssClassName = "alert alert-success", Title = "Success!", Message = "All entries on " + date + " Deleted." };
 
             // Pass the date back 
             return RedirectToAction("Index", new { startDate = date });

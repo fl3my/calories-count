@@ -1,7 +1,16 @@
 ﻿@model CaloriesCount.ViewModels.DiaryIndexViewModel
+@using CaloriesCount.Models;
 
 @{
     ViewBag.Title = "Diary";
+}
+
+@if (TempData["UserMessage"] != null)
+{
+    AlertMessage userMessage = (TempData["UserMessage"] as AlertMessage);
+    <div class="@userMessage.CssClassName">
+        <strong>@userMessage.Title</strong> @userMessage.Message
+    </div>
 }
 
 <h2>Your Calorie Diary</h2>
@@ -17,48 +26,49 @@
     </div>
 }
 
-@Html.ActionLink("Reset this day", "DeleteAll", new { date = @Model.CurrentDate }, new { @class = "btn btn-warning", @style="margin-bottom: 15px;"})
+@Html.ActionLink("Reset this day", "DeleteAll", new { date = @Model.CurrentDate }, new { @class = "btn btn-primary", @style = "margin-bottom: 15px;" })
 
-@if(Model.DiaryEntries.Count() == 0)
+
+@if (Model.DiaryEntries.Count() == 0)
 {
-<p>Sorry, no food recorded for this date!</p>
+    <p>Sorry, no food recorded for this date!</p>
 }
 else
 {
-<table class="table table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaryEntries.First().Food.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaryEntries.First().Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaryEntries.First().TotalCalories)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.DiaryEntries)
-    {
+    <table class="table table-striped">
         <tr>
-            <td>
-                @Html.ActionLink(@item.Food.Name, "Details", "Foods", new { @item.Food.Id }, null)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalCalories)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Remove", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaryEntries.First().Food.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaryEntries.First().Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaryEntries.First().TotalCalories)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.DiaryEntries)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@item.Food.Name, "Details", "Foods", new { @item.Food.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCalories)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Remove", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-<h4>You have consumed <strong>@Model.Total</strong> Calories in total</h4>
+    </table>
+
+    <h4>You have consumed <strong>@Model.Total</strong> Calories in total</h4>
 }

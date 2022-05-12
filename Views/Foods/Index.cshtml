@@ -39,7 +39,7 @@
 
                 <div class="panel-body">
                     <a href="@Url.Action("Details", "Foods", new { id = item.Id })">
-                        <img src="@(Url.Content(Constants.FoodImagePath) + item.ImageFileName)" class="img-fluid img-responsive img-rounded" />
+                        <img src="@(Url.Content(Constants.FoodThumbnailPath) + item.ImageFileName)" class="img-fluid img-responsive img-rounded" />
                     </a>
                 </div>
 
