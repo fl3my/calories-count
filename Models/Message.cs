@@ -18,7 +18,7 @@ namespace CaloriesCount.Models
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         [Required]
-        [RegularExpression("^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+.)+[a-z]{2,5}$", ErrorMessage = "Email not valid")]
+        [RegularExpression("^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+[.])+[a-z]{2,5}$", ErrorMessage = "Email not valid")]
         public string Email { get; set; }
 
         [DataType(DataType.MultilineText)]
